@@ -15,15 +15,15 @@ namespace MicroPermissions.DataAccess.DataLayer
             collection = ruleSets.ToList();
         }
 
-        public bool CanCreate(PermissionContext context, Type type, object @object) => collection.Any(r => r.CanCreate(context, type, @object));
+        public bool CanCreate(IDataLayerPermissionContext context, Type type, object @object) => collection.Any(r => r.CanCreate(context, type, @object));
 
-        public bool CanDelete(PermissionContext context, Type type, object @object) => collection.Any(r => r.CanDelete(context, type, @object));
+        public bool CanDelete(IDataLayerPermissionContext context, Type type, object @object) => collection.Any(r => r.CanDelete(context, type, @object));
 
-        public bool CanRead(PermissionContext context, Type type, object @object) => collection.Any(r => r.CanRead(context, type, @object));
+        public bool CanRead(IDataLayerPermissionContext context, Type type, object @object) => collection.Any(r => r.CanRead(context, type, @object));
 
-        public bool CanUpdate(PermissionContext context, Type type, object oldObject, object newObject) => collection.Any(r => r.CanUpdate(context, type, oldObject, newObject));
+        public bool CanUpdate(IDataLayerPermissionContext context, Type type, object oldObject, object newObject) => collection.Any(r => r.CanUpdate(context, type, oldObject, newObject));
 
-        public Expression<Func<T, bool>> ReadFilter<T>(PermissionContext context)
+        public Expression<Func<T, bool>> ReadFilter<T>(IDataLayerPermissionContext context)
         {
             var expressions = collection
                 .Select(c => c.ReadFilter<T>(context))

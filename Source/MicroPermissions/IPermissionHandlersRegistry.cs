@@ -2,8 +2,9 @@
 
 namespace MicroPermissions
 {
-    public interface IPermissionHandlersRegistry
+    public interface IMicroPermissionsRegistry<TContext>
     {
-        IEnumerable<IPermissionHandler<T>> Resolve<T>() where T : IPermissionRequest;
+        IEnumerable<IPermissionHandler<TContext, T>> ResolveHandler<T>() where T : IPermissionRequest;
+        IEnumerable<IPermissionFilter<TContext, T>> ResolveFilter<T>();
     }
 }

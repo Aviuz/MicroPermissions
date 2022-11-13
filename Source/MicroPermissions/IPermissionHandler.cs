@@ -2,8 +2,8 @@
 
 namespace MicroPermissions
 {
-    public interface IPermissionHandler<TRequest> where TRequest : IPermissionRequest
+    public interface IPermissionHandler<TContext, TRequest> where TRequest : IPermissionRequest
     {
-        Task HandleRequestAsync(PermissionContext context, TRequest request);
+        Task HandleRequestAsync(TContext context, PermissionRequestEventArguments args, TRequest request);
     }
 }

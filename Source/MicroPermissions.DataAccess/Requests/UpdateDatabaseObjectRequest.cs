@@ -9,7 +9,7 @@ namespace MicroPermissions.DataAccess.Requests
         public object OldValue { get; set; }
         public object NewValue { get; set; }
 
-        public bool IsGranted(PermissionContext context, IDataAccessRuleSet ruleSet)
+        public bool IsGranted(IDataLayerPermissionContext context, IDataAccessRuleSet ruleSet)
            => ruleSet.CanUpdate(context, Type, OldValue, NewValue);
     }
 }

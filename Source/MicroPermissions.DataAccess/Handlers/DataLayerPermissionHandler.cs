@@ -3,16 +3,14 @@ using System.Threading.Tasks;
 
 namespace MicroPermissions.DataAccess.Handlers
 {
-    public class DataLayerPermissionHandler : IPermissionHandler<DataLayerPermissionRequest>
+    public class DataLayerPermissionHandler<TContext> : IPermissionHandler<TContext, DataLayerPermissionRequest> where TContext : IDataLayerPermissionContext
     {
-        public async Task HandleRequestAsync(PermissionContext context, DataLayerPermissionRequest request)
+        public async Task HandleRequestAsync(TContext context, PermissionRequestEventArguments args, DataLayerPermissionRequest request)
         {
-            var dataLayerContext = context as IDataLayerPermissionContext;
-
-            IDataAccessRuleSet ruleSet = await dataLayerContext.GetRuleSetsAsync();
+            IDataAccessRuleSet ruleSet = await context.GetRuleSetsAsync();
 
             if (request.DataLayerPermission.IsGranted(context, ruleSet))
-                context.GrantAccess();
+                args.GrantAccess();
         }
     }
 }

@@ -5,10 +5,10 @@ namespace MicroPermissions.DataAccess.DataLayer
 {
     public interface IDataAccessRuleSet
     {
-        bool CanCreate(PermissionContext context, Type type, object @object);
-        bool CanRead(PermissionContext context, Type type, object @object);
-        bool CanUpdate(PermissionContext context, Type type, object oldObject, object newObject);
-        bool CanDelete(PermissionContext context, Type type, object @object);
-        Expression<Func<T, bool>> ReadFilter<T>(PermissionContext context);
+        bool CanCreate(IDataLayerPermissionContext context, Type type, object @object);
+        bool CanRead(IDataLayerPermissionContext context, Type type, object @object);
+        bool CanUpdate(IDataLayerPermissionContext context, Type type, object oldObject, object newObject);
+        bool CanDelete(IDataLayerPermissionContext context, Type type, object @object);
+        Expression<Func<T, bool>> ReadFilter<T>(IDataLayerPermissionContext context);
     }
 }

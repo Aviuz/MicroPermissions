@@ -4,6 +4,6 @@ namespace MicroPermissions.DataAccess.Requests
 {
     public  interface IDataLayerPermission
     {
-        bool IsGranted(PermissionContext context, IDataAccessRuleSet ruleSet);
+        bool IsGranted(IDataLayerPermissionContext context, IDataAccessRuleSet ruleSet);
     }
 }

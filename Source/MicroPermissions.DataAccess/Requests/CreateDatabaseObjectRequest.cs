@@ -8,7 +8,7 @@ namespace MicroPermissions.DataAccess.Requests
         public Type Type { get; set; }
         public object Object { get; set; }
 
-        public bool IsGranted(PermissionContext context, IDataAccessRuleSet ruleSet)
+        public bool IsGranted(IDataLayerPermissionContext context, IDataAccessRuleSet ruleSet)
             => ruleSet.CanCreate(context, Type, Object);
     }
 }

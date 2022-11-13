@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace MicroPermissions.AspNetCore
 {
-    public class DependencyInjectionHandlerRegistry : IPermissionHandlersRegistry
+    public class DependencyInjectionHandlerRegistry<TContext> : IMicroPermissionsRegistry<TContext>
     {
         private readonly IServiceProvider serviceProvider;
 
@@ -13,9 +13,14 @@ namespace MicroPermissions.AspNetCore
             this.serviceProvider = serviceProvider;
         }
 
-        public IEnumerable<IPermissionHandler<T>> Resolve<T>() where T : IPermissionRequest
+        public IEnumerable<IPermissionFilter<TContext, T>> ResolveFilter<T>()
         {
-            return serviceProvider.GetServices<IPermissionHandler<T>>();
+            return serviceProvider.GetServices<IPermissionFilter<TContext, T>>();
+        }
+
+        public IEnumerable<IPermissionHandler<TContext, T>> ResolveHandler<T>() where T : IPermissionRequest
+        {
+            return serviceProvider.GetServices<IPermissionHandler<TContext, T>>();
         }
     }
 }

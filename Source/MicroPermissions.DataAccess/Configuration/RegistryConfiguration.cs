@@ -1,13 +1,15 @@
-﻿using MicroPermissions.DataAccess.Handlers;
-using MicroPermissions.DataAccess.Requests;
+﻿using MicroPermissions.DataAccess.Filters;
+using MicroPermissions.DataAccess.Handlers;
+using MicroPermissions.MemoryRegistry;
 
 namespace MicroPermissions.DataAccess.Configuration
 {
     public static class RegistryConfiguration
     {
-        public static void AddDataLayerModule(this MemoryPermissionHandlerRegistry registry)
+        public static void AddDataLayerModule<TContext>(this MemoryMicroPermissionsRegistry<TContext> registry) where TContext : IDataLayerPermissionContext
         {
-            registry.Register<DataLayerPermissionHandler, DataLayerPermissionRequest>();
+            registry.RegisterHandler<DataLayerPermissionHandler<TContext>, DataLayerPermissionRequest>();
+            registry.RegisterFilter<QueryFilter<TContext>, IQueryWrapper<TContext>>();
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Linq.Expressions;
 
 namespace MicroPermissions.DataAccess.DataLayer
 {
-    public class DictionaryRuleSetBuilder<TContext> where TContext : PermissionContext, IDataLayerPermissionContext
+    public class DictionaryRuleSetBuilder<TContext> where TContext : IDataLayerPermissionContext
     {
         private DictionaryRuleSet<TContext> ruleSet = new DictionaryRuleSet<TContext>();
 

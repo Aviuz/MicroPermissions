@@ -5,11 +5,10 @@ namespace Microsoft.Extensions.DependencyInjection
 {
     public static class DependencyInjectionExtensions
     {
-        public static IServiceCollection AddMicroPermissions<TContext, TPermissionHandler>(this IServiceCollection services) where TContext : PermissionContext where TPermissionHandler : PermissionController<TContext>
+        public static IServiceCollection AddMicroPermissions<TContext>(this IServiceCollection services)
         {
-            services.AddTransient<IPermissionHandlersRegistry, DependencyInjectionHandlerRegistry>();
-            services.AddScoped<TContext>();
-            services.AddScoped<TPermissionHandler>();
+            services.AddTransient<IMicroPermissionsRegistry<TContext>, DependencyInjectionHandlerRegistry<TContext>>();
+            services.AddTransient<PermissionController<TContext>>();
 
             return services;
         }
