@@ -1,0 +1,1 @@
+﻿Chcę wyciągnąć tą bibliotekę jako nuget, dlatego zrobiłem ją oddzielnie
