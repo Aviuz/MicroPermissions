@@ -23,7 +23,12 @@ public class PermissionContext
 }
 ```
 
-3. Add permission handler or filter 
+4. Add MicroPermissions to services
+```csharp
+builder.Services.AddMicroPermissions<MyPermissionContext>();
+```
+
+5. Add permission handler or filter 
 ```csharp
 // Typically for operations, creating/updating resources, viewing single entity etc.
 public class BasicRequestPermissionHandler : IPermissionHandler<PermissionContext, BasicRequest>
@@ -50,3 +55,9 @@ public class TaskPermissionFilter : IPermissionFilter<MyPermissionContext, IQuer
 ```
 
 you can use whatever logic you want or request type
+
+6. Add handlers & filters to dependency injection
+```csharp
+builder.Services.AddTransient<IPermissionHandler<MyPermissionContext, BasicRequest>, BasicRequestPermissionHandler>();
+builder.Services.AddTransient<IPermissionFilter<MyPermissionContext, IQueryable<Task>>, TaskPermissionFilter>();
+```
