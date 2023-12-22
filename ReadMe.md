@@ -61,4 +61,4 @@ builder.Services.AddTransient<IPermissionHandler<PermissionContext, BasicRequest
 builder.Services.AddTransient<IPermissionFilter<PermissionContext, IQueryable<Task>>, TaskPermissionFilter>();
 ```
 
-# For more information how to use library refer to [Example Project](/Source/ExampleProject)
+### For more information how to use library refer to [Example Project](/Source/ExampleProject)
