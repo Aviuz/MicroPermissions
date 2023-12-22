@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroPermissions.Tests", "PBA.Tests\MicroPermissions.Tests.csproj", "{15DBCBB5-9C8B-40E0-9F59-D7FA297B0F07}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroPermissions.Tests", "MicroPermissions.Tests\MicroPermissions.Tests.csproj", "{15DBCBB5-9C8B-40E0-9F59-D7FA297B0F07}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroPermissions", "MicroPermissions\MicroPermissions.csproj", "{2950D8CF-CCDE-4B29-AFC9-8EA1FD488B76}"
 EndProject
