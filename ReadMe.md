@@ -60,3 +60,5 @@ You can define your own permission logic. For types used as resources there are 
 builder.Services.AddTransient<IPermissionHandler<PermissionContext, BasicRequest>, BasicRequestPermissionHandler>();
 builder.Services.AddTransient<IPermissionFilter<PermissionContext, IQueryable<Task>>, TaskPermissionFilter>();
 ```
+
+# For more information how to use library refer to [Example Project](/Source/ExampleProject)
