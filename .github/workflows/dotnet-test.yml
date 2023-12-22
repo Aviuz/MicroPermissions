@@ -21,8 +21,8 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Restore dependencies
-      run: dotnet restore source/*.sln
+      run: dotnet restore Source/MicroPermissions.sln
     - name: Build
-      run: dotnet build source/*.sln --no-restore
+      run: dotnet build Source/MicroPermissions.sln --no-restore
     - name: Test
-      run: dotnet test source/*.sln --no-build --verbosity normal
+      run: dotnet test Source/MicroPermissions.sln --no-build --verbosity normal
