@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+	<metadata>
+		<id>MicroPermissions</id>
+		<version>1.0.0</version>
+		<description>MicroPermissions - Minimalistic ASP.NET Policy/Resource Permissions permission system.</description>
+		<authors>Aviuz</authors>
+		<tags>permissions</tags>
+
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<license type="expression">MIT</license>
+		<copyright>Copyright (c) Aviuz 2023</copyright>
+
+		<language>en-US</language>
+		<projectUrl>https://github.com/Aviuz/MicroPermissions</projectUrl>
+		<repository type="git" url="https://github.com/Aviuz/MicroPermissions.git" />
+		<readme>docs\ReadMe.md</readme>
+
+		<dependencies>
+			<group targetFramework="netstandard2.0">
+				<dependency id="NETStandard.Library" version="2.0.3" />
+			</group>
+		</dependencies>
+	</metadata>
+
+	<files>
+		<file src="..\..\ReadMe.md" target="docs\" />
+
+		<file src="bin\Release\netstandard2.0\MicroPermissions.dll" target="lib\netstandard2.0" />
+		<file src="bin\Release\netstandard2.0\MicroPermissions.pdb" target="lib\netstandard2.0" />
+		<file src="bin\Release\netstandard2.0\MicroPermissions.deps.json" target="lib\netstandard2.0" />
+	</files>
+</package>

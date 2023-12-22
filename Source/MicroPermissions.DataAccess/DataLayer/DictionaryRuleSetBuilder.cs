@@ -39,10 +39,10 @@ namespace MicroPermissions.DataAccess.DataLayer
 
         public void AllowFullAccess<T>()
         {
-            ForType<T>().Read.Add(_ => _ => true);
-            ForType<T>().Create.Add((_, _) => true);
-            ForType<T>().Delete.Add((_, _) => true);
-            ForType<T>().Update.Add((_, _, _) => true);
+            ForType<T>().Read.Add(context => item => true);
+            ForType<T>().Create.Add((context, item) => true);
+            ForType<T>().Delete.Add((context, item) => true);
+            ForType<T>().Update.Add((context, oldItem, newItem) => true);
         }
 
         public void AllowFullAccess<T>(Expression<Func<T, bool>> rule)

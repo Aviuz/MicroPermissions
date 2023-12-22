@@ -15,7 +15,7 @@ namespace MicroPermissions.DataAccess.Filters
 
         public IQueryable<T> Query<T>()
         {
-            if (!typeof(TResource).IsAssignableTo(typeof(T)))
+            if (!typeof(T).IsAssignableFrom(typeof(TResource)))
                 throw new ArgumentException($"Failed to cast QueryWrapper of type <{typeof(TResource).Name}> to type <{typeof(T).Name}>");
             return query as IQueryable<T>;
         }
