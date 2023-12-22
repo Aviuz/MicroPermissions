@@ -5,11 +5,13 @@ VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroPermissions.Tests", "MicroPermissions.Tests\MicroPermissions.Tests.csproj", "{15DBCBB5-9C8B-40E0-9F59-D7FA297B0F07}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroPermissions", "MicroPermissions\MicroPermissions.csproj", "{2950D8CF-CCDE-4B29-AFC9-8EA1FD488B76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroPermissions", "MicroPermissions\MicroPermissions.csproj", "{2950D8CF-CCDE-4B29-AFC9-8EA1FD488B76}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroPermissions.DataAccess", "MicroPermissions.DataAccess\MicroPermissions.DataAccess.csproj", "{2E3FFF52-BB0D-49EA-9A23-B94EAC615BA0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroPermissions.DataAccess", "MicroPermissions.DataAccess\MicroPermissions.DataAccess.csproj", "{2E3FFF52-BB0D-49EA-9A23-B94EAC615BA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroPermissions.AspNetCore", "MicroPermissions.AspNetCore\MicroPermissions.AspNetCore.csproj", "{95C836A9-F904-4A3C-A467-485BA23E4629}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroPermissions.AspNetCore", "MicroPermissions.AspNetCore\MicroPermissions.AspNetCore.csproj", "{95C836A9-F904-4A3C-A467-485BA23E4629}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleProject", "ExampleProject\ExampleProject.csproj", "{304C36BB-E895-41B3-86AA-E038B0206ECA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{95C836A9-F904-4A3C-A467-485BA23E4629}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95C836A9-F904-4A3C-A467-485BA23E4629}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95C836A9-F904-4A3C-A467-485BA23E4629}.Release|Any CPU.Build.0 = Release|Any CPU
+		{304C36BB-E895-41B3-86AA-E038B0206ECA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{304C36BB-E895-41B3-86AA-E038B0206ECA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{304C36BB-E895-41B3-86AA-E038B0206ECA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{304C36BB-E895-41B3-86AA-E038B0206ECA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

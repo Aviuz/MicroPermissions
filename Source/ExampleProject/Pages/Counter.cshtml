@@ -1,0 +1,15 @@
+﻿@page
+@model ExampleProject.Pages.CounterModel
+@{
+}
+
+<h2>Counter</h2>
+<p>Current count: @Model.Count</p>
+
+<form method="post">
+    <div>
+        <label>Increment value</label>
+        <input name="value" type="number"/>
+    </div>
+    <button type="submit" asp-page-handler="Increment">Increment</button>
+</form>

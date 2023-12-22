@@ -1,0 +1,20 @@
+﻿@page
+@model ExampleProject.Pages.TasksModel
+@{
+}
+
+<h2>Tasks</h2>
+<ul>
+    @foreach (var task in Model.TaskList)
+    {
+        <li>@task.Owner - @task.Text (@task.DateTime)</li>
+    }
+</ul>
+<h3>Add task</h3>
+<form method="post">
+    <div>
+        <label>New task:</label>
+        <input asp-for="NewTaskText" />
+        <input type="submit" value="Add" />
+    </div>
+</form>

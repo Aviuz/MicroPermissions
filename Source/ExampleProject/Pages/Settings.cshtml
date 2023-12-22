@@ -1,0 +1,16 @@
+﻿@page
+@model ExampleProject.Pages.SettingsModel
+@{
+}
+
+<form method="post">
+    <div>
+        <label asp-for="ShowAllTasks"></label>
+        <input asp-for="ShowAllTasks" type="checkbox" />
+    </div>
+    <div>
+        <label asp-for="AllowCounter"></label>
+        <input asp-for="AllowCounter" type="checkbox" />
+    </div>
+    <input type="submit" value="Save" />
+</form>
