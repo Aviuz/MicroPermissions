@@ -2,8 +2,13 @@
 
 namespace MicroPermissions
 {
-    public interface IPermissionHandler<TContext, TRequest> where TRequest : IPermissionRequest
+    /// <summary>
+    /// Core functionality of micropermissions system. It resolves access for specified request.
+    /// </summary>
+    /// <typeparam name="TContext">Permission context (in most scenarios this should be user/permission info)</typeparam>
+    /// <typeparam name="TRequest">Request that should be valided for access</typeparam>
+    public interface IPermissionHandler<TContext, TRequest>
     {
-        Task HandleRequestAsync(TContext context, PermissionRequestEventArguments args, TRequest request);
+        Task HandleRequestAsync(TContext context, PermissionRequestEventArguments perm, TRequest request);
     }
 }

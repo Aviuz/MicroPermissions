@@ -7,22 +7,22 @@ namespace MicroPermissions
     {
         private readonly IMicroPermissionsRegistry<TContext> registry;
         private readonly TContext context;
+        private readonly PermissionControllerOptions options;
 
-        public bool ThrowIfNotHandled { get; set; } = true;
-
-        public PermissionController(IMicroPermissionsRegistry<TContext> registry, TContext context)
+        public PermissionController(IMicroPermissionsRegistry<TContext> registry, TContext context, PermissionControllerOptions options)
         {
             this.registry = registry;
             this.context = context;
+            this.options = options;
         }
 
-        public async Task<bool> IsGrantedAsync<T>(T request) where T : class, IPermissionRequest
+        public async Task<bool> IsGrantedAsync<T>(T request)
         {
             var eventArgs = new PermissionRequestEventArguments();
 
             var handlers = registry.ResolveHandler<T>();
 
-            if (ThrowIfNotHandled && handlers.Any() == false)
+            if (options.ThrowIfUnhandled && handlers.Any() == false)
                 throw new NotHandledPermissionRequestException(typeof(T).Name);
 
             foreach (var handler in handlers)
@@ -43,7 +43,7 @@ namespace MicroPermissions
                 await handler.FilterResourceAsync(context, eventArgs);
             }
 
-            if (ThrowIfNotHandled && eventArgs.ResourceChanged == false)
+            if (options.ThrowIfUnhandled && eventArgs.ResourceChanged == false)
             {
                 throw new NotHandledPermissionFilterException(typeof(T).Name);
             }

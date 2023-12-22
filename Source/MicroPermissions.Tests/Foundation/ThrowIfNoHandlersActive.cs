@@ -12,19 +12,17 @@ namespace MicroPermissions.Tests.Foundation
         {
             var registry = new MemoryMicroPermissionsRegistry<PermissionContext>();
             var context = new PermissionContext();
-            var controller = new PermissionController<PermissionContext>(registry, context);
-            controller.ThrowIfNotHandled = true;
+            var controller = new PermissionController<PermissionContext>(registry, context, new() { ThrowIfUnhandled = true });
 
             await Assert.ThrowsAsync<NotHandledPermissionRequestException>(async () => await controller.IsGrantedAsync(new EmptyRequest()));
         }
 
         [Fact]
-        public async Task NoHandler_Ignore_If_ThrowSetToFalse ()
+        public async Task NoHandler_Ignore_If_ThrowSetToFalse()
         {
             var registry = new MemoryMicroPermissionsRegistry<PermissionContext>();
             var context = new PermissionContext();
-            var controller = new PermissionController<PermissionContext>(registry, context);
-            controller.ThrowIfNotHandled = false;
+            var controller = new PermissionController<PermissionContext>(registry, context, new() { ThrowIfUnhandled = false });
 
             Assert.False(await controller.IsGrantedAsync(new EmptyRequest()));
         }
@@ -34,8 +32,7 @@ namespace MicroPermissions.Tests.Foundation
         {
             var registry = new MemoryMicroPermissionsRegistry<PermissionContext>();
             var context = new PermissionContext();
-            var controller = new PermissionController<PermissionContext>(registry, context);
-            controller.ThrowIfNotHandled = true;
+            var controller = new PermissionController<PermissionContext>(registry, context, new() { ThrowIfUnhandled = true });
 
             await Assert.ThrowsAsync<NotHandledPermissionFilterException>(async () => await controller.FilterAsync(1));
         }
@@ -47,8 +44,7 @@ namespace MicroPermissions.Tests.Foundation
             registry.RegisterFilter<EmptyFilter, int>();
 
             var context = new PermissionContext();
-            var controller = new PermissionController<PermissionContext>(registry, context);
-            controller.ThrowIfNotHandled = true;
+            var controller = new PermissionController<PermissionContext>(registry, context, new() { ThrowIfUnhandled = true });
 
             await Assert.ThrowsAsync<NotHandledPermissionFilterException>(async () => await controller.FilterAsync(1));
         }
@@ -58,8 +54,7 @@ namespace MicroPermissions.Tests.Foundation
         {
             var registry = new MemoryMicroPermissionsRegistry<PermissionContext>();
             var context = new PermissionContext();
-            var controller = new PermissionController<PermissionContext>(registry, context);
-            controller.ThrowIfNotHandled = false;
+            var controller = new PermissionController<PermissionContext>(registry, context, new() { ThrowIfUnhandled = false });
 
             Assert.Equal(1, await controller.FilterAsync(1));
         }

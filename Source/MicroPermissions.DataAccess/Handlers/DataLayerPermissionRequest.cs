@@ -2,7 +2,7 @@
 
 namespace MicroPermissions.DataAccess.Handlers
 {
-    public class DataLayerPermissionRequest : IPermissionRequest
+    public class DataLayerPermissionRequest
     {
         public IDataLayerPermission DataLayerPermission { get; set; }
     }

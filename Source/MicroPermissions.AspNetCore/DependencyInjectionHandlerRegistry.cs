@@ -18,7 +18,7 @@ namespace MicroPermissions.AspNetCore
             return serviceProvider.GetServices<IPermissionFilter<TContext, T>>();
         }
 
-        public IEnumerable<IPermissionHandler<TContext, T>> ResolveHandler<T>() where T : IPermissionRequest
+        public IEnumerable<IPermissionHandler<TContext, T>> ResolveHandler<T>()
         {
             return serviceProvider.GetServices<IPermissionHandler<TContext, T>>();
         }

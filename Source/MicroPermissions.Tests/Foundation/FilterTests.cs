@@ -15,7 +15,7 @@ namespace MicroPermissions.Tests.Foundation
 
             registry.RegisterFilter<IncrementFilter, int>();
 
-            var controller = new PermissionController<PermissionContext>(registry, context);
+            var controller = new PermissionController<PermissionContext>(registry, context, new() { ThrowIfUnhandled = true });
             int value = await controller.FilterAsync(0);
 
             Assert.Equal(1, value);
@@ -31,7 +31,7 @@ namespace MicroPermissions.Tests.Foundation
             registry.RegisterFilter<IncrementFilter, int>();
             registry.RegisterFilter<IncrementFilter, int>();
 
-            var controller = new PermissionController<PermissionContext>(registry, context);
+            var controller = new PermissionController<PermissionContext>(registry, context, new() { ThrowIfUnhandled = true });
             int value = await controller.FilterAsync(1);
 
             Assert.Equal(4, value);
@@ -42,8 +42,7 @@ namespace MicroPermissions.Tests.Foundation
         {
             var registry = new MemoryMicroPermissionsRegistry<PermissionContext>();
             var context = new PermissionContext();
-            var controller = new PermissionController<PermissionContext>(registry, context);
-            controller.ThrowIfNotHandled = false;
+            var controller = new PermissionController<PermissionContext>(registry, context, new() { ThrowIfUnhandled = false });
 
             int value = await controller.FilterAsync(7);
 

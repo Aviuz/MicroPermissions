@@ -20,7 +20,7 @@ namespace MicroPermissions.Tests.Foundation
 
             registry.RegisterHandler<EmptyPositiveHandler, EmptyRequest>();
 
-            var controller = new PermissionController<PermissionContext>(registry, context);
+            var controller = new PermissionController<PermissionContext>(registry, context, new());
 
             Assert.True(await controller.IsGrantedAsync(new EmptyRequest()));
         }
@@ -34,7 +34,7 @@ namespace MicroPermissions.Tests.Foundation
             registry.RegisterHandler<EmptyPositiveHandler, EmptyRequest>();
             registry.RegisterHandler<EmptyNeutralHandler, EmptyRequest>();
 
-            var controller = new PermissionController<PermissionContext>(registry, context);
+            var controller = new PermissionController<PermissionContext>(registry, context, new());
 
             Assert.True(await controller.IsGrantedAsync(new EmptyRequest()));
         }
@@ -47,7 +47,7 @@ namespace MicroPermissions.Tests.Foundation
 
             registry.RegisterHandler<EmptyNegativeHandler, EmptyRequest>();
 
-            var controller = new PermissionController<PermissionContext>(registry, context);
+            var controller = new PermissionController<PermissionContext>(registry, context, new());
 
             Assert.False(await controller.IsGrantedAsync(new EmptyRequest()));
         }
@@ -61,7 +61,7 @@ namespace MicroPermissions.Tests.Foundation
             registry.RegisterHandler<EmptyNegativeHandler, EmptyRequest>();
             registry.RegisterHandler<EmptyPositiveHandler, EmptyRequest>();
 
-            var controller = new PermissionController<PermissionContext>(registry, context);
+            var controller = new PermissionController<PermissionContext>(registry, context, new());
 
             Assert.False(await controller.IsGrantedAsync(new EmptyRequest()));
         }
@@ -75,7 +75,7 @@ namespace MicroPermissions.Tests.Foundation
             registry.RegisterHandler<EmptyPositiveHandler, EmptyRequest>();
             registry.RegisterHandler<EmptyNegativeHandler, EmptyRequest>();
 
-            var controller = new PermissionController<PermissionContext>(registry, context);
+            var controller = new PermissionController<PermissionContext>(registry, context, new());
 
             Assert.False(await controller.IsGrantedAsync(new EmptyRequest()));
         }
@@ -89,7 +89,7 @@ namespace MicroPermissions.Tests.Foundation
             registry.RegisterHandler<EmptyNegativeHandler, EmptyRequest>();
             registry.RegisterHandler<EmptyNegativeHandler, EmptyRequest>();
 
-            var controller = new PermissionController<PermissionContext>(registry, context);
+            var controller = new PermissionController<PermissionContext>(registry, context, new());
 
             Assert.False(await controller.IsGrantedAsync(new EmptyRequest()));
         }
@@ -104,7 +104,7 @@ namespace MicroPermissions.Tests.Foundation
             registry.RegisterHandler<EmptyNeutralHandler, EmptyRequest>();
             registry.RegisterHandler<EmptyNegativeHandler, EmptyRequest>();
 
-            var controller = new PermissionController<PermissionContext>(registry, context);
+            var controller = new PermissionController<PermissionContext>(registry, context, new());
 
             Assert.False(await controller.IsGrantedAsync(new EmptyRequest()));
         }

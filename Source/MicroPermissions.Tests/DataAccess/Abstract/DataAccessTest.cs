@@ -27,7 +27,7 @@ namespace MicroPermissions.Tests.DataAccess.Abstract
             buildRuleSet.Invoke(builder);
             context.DataAccessRuleSet = builder.Build();
 
-            return new PermissionController<DataAccessPermissionContext>(registry, context);
+            return new PermissionController<DataAccessPermissionContext>(registry, context, new());
         }
     }
 }
