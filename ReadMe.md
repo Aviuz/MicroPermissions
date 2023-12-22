@@ -1,4 +1,4 @@
-# Micro Permissions
+# Micro Permissions [![.NET Build & Test](https://github.com/Aviuz/MicroPermissions/actions/workflows/dotnet-test.yml/badge.svg)](https://github.com/Aviuz/MicroPermissions/actions/workflows/dotnet-test.yml)
 Minimalistic ASP.NET Policy/Resource Permissions permission system. It was inspired by [Policy-based authorization in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/security/authorization/policies). The difference here is it was designed to be used across multiple types of projects (service, aspnet core, common libraries), more modular and customaziable while keeping it simple and small.
 
 # How to start
