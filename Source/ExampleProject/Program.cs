@@ -13,7 +13,10 @@ builder.Services.AddAuthentication(NegotiateDefaults.AuthenticationScheme)
    .AddNegotiate();
 
 // Register MicroPermissions
-builder.Services.AddMicroPermissions<MyPermissionContext>();
+builder.Services.AddMicroPermissions<MyPermissionContext>(new PermissionControllerOptions
+{
+    ThrowIfUnhandled = true, // when call permissionController it ensures permission is granted explicitly, otherwise throw exception
+});
 builder.Services.AddHttpContextAccessor(); // we're adding IHttpAncestor for demo purposes, required for our custom MyPermissionContext.
 builder.Services.AddScoped<MyPermissionContext>(); // add permission context to IoC
 
