@@ -53,8 +53,7 @@ public class TaskPermissionFilter : IPermissionFilter<MyPermissionContext, IQuer
     }
 }
 ```
-
-you can use whatever logic you want or request type
+You can define your own permission logic. For types used as resources there are no limitations.
 
 6. Add handlers & filters to dependency injection
 ```csharp
