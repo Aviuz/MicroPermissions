@@ -25,7 +25,7 @@ public class PermissionContext
 
 4. Add MicroPermissions to services
 ```csharp
-builder.Services.AddMicroPermissions<MyPermissionContext>();
+builder.Services.AddMicroPermissions<PermissionContext>();
 ```
 
 5. Add permission handler or filter 
@@ -43,9 +43,9 @@ public class BasicRequestPermissionHandler : IPermissionHandler<PermissionContex
 }
 
 // Typically for returning collection of entities, hiding protected fields etc.
-public class TaskPermissionFilter : IPermissionFilter<MyPermissionContext, IQueryable<Task>>
+public class TaskPermissionFilter : IPermissionFilter<PermissionContext, IQueryable<Task>>
 {
-    public Task FilterResourceAsync(MyPermissionContext context, PermissionFilterEventArgs<IQueryable<Task>> perm)
+    public Task FilterResourceAsync(PermissionContext context, PermissionFilterEventArgs<IQueryable<Task>> perm)
     {
         perm.FilteredResource = perm.OriginalResource.Where(task => task.Owner == context.UserName);
 
@@ -57,6 +57,6 @@ You can define your own permission logic. For types used as resources there are 
 
 6. Add handlers & filters to dependency injection
 ```csharp
-builder.Services.AddTransient<IPermissionHandler<MyPermissionContext, BasicRequest>, BasicRequestPermissionHandler>();
-builder.Services.AddTransient<IPermissionFilter<MyPermissionContext, IQueryable<Task>>, TaskPermissionFilter>();
+builder.Services.AddTransient<IPermissionHandler<PermissionContext, BasicRequest>, BasicRequestPermissionHandler>();
+builder.Services.AddTransient<IPermissionFilter<PermissionContext, IQueryable<Task>>, TaskPermissionFilter>();
 ```
