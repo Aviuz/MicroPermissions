@@ -25,6 +25,7 @@ public class PermissionContext
 
 4. Add MicroPermissions to services
 ```csharp
+builder.Services.AddScoped<PermissionContext>();
 builder.Services.AddMicroPermissions<PermissionContext>();
 ```
 
@@ -59,6 +60,31 @@ You can define your own permission logic. For types used as resources there are 
 ```csharp
 builder.Services.AddTransient<IPermissionHandler<PermissionContext, BasicRequest>, BasicRequestPermissionHandler>();
 builder.Services.AddTransient<IPermissionFilter<PermissionContext, IQueryable<Task>>, TaskPermissionFilter>();
+```
+
+7. Use in controller or any other service
+```csharp
+[ApiController]
+public class TaskController : ControllerBase
+{
+    private readonly IPermissionController permissionController;
+
+    public TaskController(IPermissionController permissionController)
+    {
+        this.permissionController = permissionController;
+    }
+
+    [HttpPost]
+    public async Task<ActionResult> PostAsync(CreateTaskRequest request)
+    {
+        // ...
+
+        if (await permissions.IsGrantedAsync(request) == false)
+            return Forbid();
+
+        // ...
+    }
+}
 ```
 
 ### For more information how to use library refer to [Example Project](/Source/ExampleProject)
