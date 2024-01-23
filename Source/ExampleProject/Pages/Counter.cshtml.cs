@@ -8,11 +8,11 @@ namespace ExampleProject.Pages;
 
 public class CounterModel : PageModel
 {
-    private readonly PermissionController<MyPermissionContext> permissions;
+    private readonly IPermissionController permissions;
 
     public int Count { get; set; }
 
-    public CounterModel(PermissionController<MyPermissionContext> permissions)
+    public CounterModel(IPermissionController permissions)
     {
         this.permissions = permissions;
     }

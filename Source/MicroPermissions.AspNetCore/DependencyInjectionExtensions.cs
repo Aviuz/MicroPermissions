@@ -14,6 +14,7 @@ namespace Microsoft.Extensions.DependencyInjection
                 services.AddSingleton(new PermissionControllerOptions());
 
             services.AddTransient<IMicroPermissionsRegistry<TContext>, DependencyInjectionHandlerRegistry<TContext>>();
+            services.AddTransient<IPermissionController, PermissionController<TContext>>();
             services.AddTransient<PermissionController<TContext>>();
 
             return services;
@@ -23,6 +24,7 @@ namespace Microsoft.Extensions.DependencyInjection
         {
             services.AddTransient(createOptions);
             services.AddTransient<IMicroPermissionsRegistry<TContext>, DependencyInjectionHandlerRegistry<TContext>>();
+            services.AddTransient<IPermissionController, PermissionController<TContext>>();
             services.AddTransient<PermissionController<TContext>>();
 
             return services;

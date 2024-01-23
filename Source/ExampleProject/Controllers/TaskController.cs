@@ -13,9 +13,9 @@ public class TaskController : ControllerBase
 {
     private readonly TaskRepository repository;
     private readonly MyPermissionContext permissionContext;
-    private readonly MicroPermissions.PermissionController<MyPermissionContext> permissions;
+    private readonly IPermissionController permissions;
 
-    public TaskController(TaskRepository repository, MyPermissionContext permissionContext, PermissionController<MyPermissionContext> permissions)
+    public TaskController(TaskRepository repository, MyPermissionContext permissionContext, IPermissionController permissions)
     {
         this.repository = repository;
         this.permissionContext = permissionContext;

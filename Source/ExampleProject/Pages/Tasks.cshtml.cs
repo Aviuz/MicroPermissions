@@ -10,9 +10,9 @@ public class TasksModel : PageModel
 {
     private readonly TaskRepository repository;
     private readonly MyPermissionContext permissionContext;
-    private readonly PermissionController<MyPermissionContext> permissions;
+    private readonly IPermissionController permissions;
 
-    public TasksModel(TaskRepository repository, MyPermissionContext permissionContext, PermissionController<MyPermissionContext> permissions)
+    public TasksModel(TaskRepository repository, MyPermissionContext permissionContext, IPermissionController permissions)
     {
         this.repository = repository;
         this.permissionContext = permissionContext;
